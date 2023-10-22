@@ -13,27 +13,27 @@ export class UsersController {
   }
 
   @Post('/users')
-  create(@Body() createUserDto: CreateUserDto) {
+  async create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
 
   @Get('/users')
-  findAll() {
+  async findAll() {
     return this.usersService.findAll();
   }
 
   @Get('/users/:id')
-  findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: string) {
     return this.usersService.findOne(+id);
   }
 
   @Patch('/users/:id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+  async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(+id, updateUserDto);
   }
 
   @Delete('/users/:id')
-  remove(@Param('id') id: string) {
+  async remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
   }
 }
